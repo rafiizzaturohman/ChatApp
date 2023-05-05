@@ -2,6 +2,13 @@ var express = require('express');
 var path = require('path');
 var cookieParser = require('cookie-parser');
 var logger = require('morgan');
+const mongoose = require('mongoose');
+
+main().catch(err => console.log(err));
+
+async function main() {
+    await mongoose.connect('mongodb://localhost:27017/chatapp')
+}
 
 var indexRouter = require('./routes/index');
 var usersRouter = require('./routes/users');
