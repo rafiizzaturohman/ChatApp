@@ -1,4 +1,4 @@
-const { Schema, default: mongoose } = require("mongoose");
+const { Schema } = require("mongoose");
 
 const userSchema = new Schema({
     username: {
@@ -17,7 +17,7 @@ const userSchema = new Schema({
 
 userSchema.pre('findOneAndDelete', function (next) {
     Chat.deleteMany({ sender: this._conditions._id }).exec();
-    next()
+    next();
 })
 
-module.exports = mongoose.model('User', userSchema)
+module.exports = model('User', userSchema);

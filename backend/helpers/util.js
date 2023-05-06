@@ -1,3 +1,5 @@
+const jwt = require('jsonwebtoken');
+
 class Response {
     constructor(data, success = true) {
         this.data = data
