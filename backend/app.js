@@ -13,7 +13,7 @@ async function main() {
 
 var indexRouter = require('./routes/index');
 var usersRouter = require('./routes/users');
-// var chatsRouter = require('./routes/chats');
+var chatsRouter = require('./routes/chats');
 
 var app = express();
 
@@ -26,6 +26,6 @@ app.use(cors())
 
 app.use('/', indexRouter);
 app.use('/users', usersRouter);
-// app.use('/chats', chatsRouter);
+app.use('/chats', chatsRouter);
 
 module.exports = app;
