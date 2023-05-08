@@ -67,6 +67,6 @@ router.get('/signout', async (req, res, next) => {
     console.log(error)
     res.status(500).json(new Response(error, false))
   }
-})
+});
 
 module.exports = router;
