@@ -1,6 +1,6 @@
 var express = require('express');
 const User = require('../models/user');
-const { Response, encodeToken } = require('../helpers/util');
+const { Response, encodeToken, decodeToken } = require('../helpers/util');
 var router = express.Router();
 
 /* GET users listing. */
@@ -51,5 +51,22 @@ router.post('/auth', async (req, res, next) => {
     res.status(500).json(new Response(error, false))
   }
 });
+
+router.get('/signout', async (req, res, next) => {
+  try {
+    const storageToken = req.get('Authorization')
+    const token = storageToken?.split(' ')[1]
+    if (!token) return res.status(401).json(new Response('Token not provided', false))
+    const data = decodeToken(token)
+    if (!data.userid) return res.status(401).json(new Response('User is not authorized', false))
+    const user = await User.findById(data.userid)
+    user.token = null
+    await user.save()
+    res.status(200).json(new Response('Yeah, You made it out!'))
+  } catch (error) {
+    console.log(error)
+    res.status(500).json(new Response(error, false))
+  }
+})
 
 module.exports = router;
