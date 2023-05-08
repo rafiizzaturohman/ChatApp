@@ -1,6 +1,6 @@
 var express = require('express');
 const User = require('../models/user');
-const { Response } = require('../helpers/util');
+const { Response, encodeToken } = require('../helpers/util');
 var router = express.Router();
 
 /* GET users listing. */
@@ -37,6 +37,19 @@ router.delete('/:_id', async (req, res, next) => {
   }
 });
 
+router.post('/auth', async (req, res, next) => {
+  try {
+    const { username } = req.body
+    const user = await User.findOne({ username })
+    if (!user) return user = await User.create({ username: username })
 
+    user.token = encodeToken({ userid: user._id, IGN: user.username })
+    await user.save()
+    res.status(201).json(new Response({ id: user._id, username: user.username, token: user.token, sender: user._id }))
+  } catch (error) {
+    console.log(error)
+    res.status(500).json(new Response(error, false))
+  }
+});
 
 module.exports = router;
