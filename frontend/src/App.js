@@ -1,29 +1,21 @@
-import logo from './logo.svg';
 import './App.css';
-// import thunk from 'redux-thunk';
-// import { Route, Routes } from "react-router-dom";
-// import { legacy_createStore as createStore, applyMiddleware } from 'redux';
-// import { Provider } from 'react-redux';
+import React from 'react';
+import thunk from 'redux-thunk';
+import LoginForm from './components/LoginForm';
+import { Route, Routes } from "react-router-dom";
+import { legacy_createStore as createStore, applyMiddleware } from 'redux';
+import { Provider } from 'react-redux';
+import rootReducer from './reducers'
 
-// const store = createStore('rootReducer')
+const store = createStore(rootReducer, applyMiddleware(thunk))
 function App() {
   return (
-    <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.js</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
-    </div>
+    <Provider store={store}>
+      <Routes>
+        <Route path="/" element={<LoginForm />} />
+        {/* <Route path='/chat' element={<FormChat />} /> */}
+      </Routes>
+    </Provider>
   );
 }
 
