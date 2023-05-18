@@ -1,6 +1,11 @@
 import logo from './logo.svg';
 import './App.css';
+// import thunk from 'redux-thunk';
+// import { Route, Routes } from "react-router-dom";
+// import { legacy_createStore as createStore, applyMiddleware } from 'redux';
+// import { Provider } from 'react-redux';
 
+// const store = createStore('rootReducer')
 function App() {
   return (
     <div className="App">
