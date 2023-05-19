@@ -33,13 +33,13 @@ export default function LoginForm() {
     return (
         <div className='mx-6'>
             <div className="flex items-center justify-center h-screen">
-                <form onSubmit={handleSubmit} className='space-y-6 bg-blue-200 px-3 py-5 sm:w-full md:w-full lg:w-1/4 rounded-xl shadow-xl'>
-                    <h1 className='text-black text-center font-bold sm:text-xl md:text-xl lg:text-2xl'>Chat App</h1>
+                <form onSubmit={handleSubmit} className='space-y-6 border border-black/50 px-3 py-5 sm:w-full md:w-full lg:w-1/4 rounded-xl shadow-xl'>
+                    <h1 className='text-black text-center font-bold sm:text-xl md:text-xl lg:text-2xl uppercase '>Welcome</h1>
 
                     <div className='flex flex-col items-center justify-center'>
-                        <input type='text' id='username' placeholder='Username' className='px-3 py-1.5 rounded-md w-full' />
+                        <input type='text' id='username' placeholder='Username' className='border border-black/25 px-3 py-1.5 rounded-md w-full' />
 
-                        <button type='submit' className='transition-all hover:delay-200 font-bold text-white text-md bg-blue-500 hover:bg-blue-400 rounded-lg uppercase mt-3 px-4 py-1.5'>Log In</button>
+                        <button type='submit' className='transition-all hover:delay-150 font-bold text-white text-md bg-blue-500 hover:bg-blue-400 rounded-lg uppercase mt-3 px-20 py-1.5'>Log In</button>
                     </div>
                 </form>
             </div>
