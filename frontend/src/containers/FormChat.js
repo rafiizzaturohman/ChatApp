@@ -4,7 +4,7 @@ export default function FormChat() {
 
     return (
         <div>
-            <h1>ASUU</h1>
+            <h1>Ini Form Chat</h1>
         </div>
     )
 }
