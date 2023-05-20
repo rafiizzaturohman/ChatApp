@@ -8,7 +8,7 @@ import rootReducer from './reducers'
 import thunk from 'redux-thunk'
 import { BrowserRouter as Router, useRoutes } from 'react-router-dom';
 
-const App = () => {
+const AppWrapper = () => {
   let routes = useRoutes([
     { path: "/", element: <LoginForm /> },
     // { path: "/chat", element: <FormChat /> }
@@ -17,14 +17,15 @@ const App = () => {
 }
 
 const store = createStore(rootReducer, applyMiddleware(thunk))
-function appWrapper() {
+
+function App() {
   return (
     <Provider store={store}>
       <Router>
-        <App />
+        <AppWrapper />
       </Router>
     </Provider>
   );
 };
 
-export default appWrapper;
+export default App;

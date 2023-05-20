@@ -12,7 +12,7 @@ var http = require('http');
  * Get port from environment and store in Express.
  */
 
-var port = normalizePort(process.env.PORT || '3000');
+var port = normalizePort(process.env.PORT || '3004');
 app.set('port', port);
 
 /**
@@ -20,14 +20,41 @@ app.set('port', port);
  */
 
 var server = http.createServer(app);
-var io = require('socket.io')(server);
-
+const io = require('socket.io')(server, {
+  cors: {
+    origin: 'http://192.168.1.6:3002'
+  }
+})
 
 io.on('connection', (socket) => {
-  socket.on('chat message', (msg) => {
-    io.emit('message: ' + msg);
+  socket.on('join room', (data) => {
+    socket.join(data)
+    console.log(io.sockets.adapter.rooms, 'join room 1')
+  })
+
+  socket.on('send message', async (data) => {
+    socket.to(data.to).emit('receive message', { _id: data._id, message: data.message, date: data.date, sender: data.sender, receiver: data.receiver, readstatus: data.readstatus })
   });
+
+  socket.on('delete message', (data) => {
+    socket.to(data.to).emit('delete message', data._id)
+  })
+
+  socket.on('send selected read notice', (data) => {
+    socket.to(data.to).emit('receive selected read notice', data.id)
+  })
+
+  socket.on('send receiver read notice', (data) => {
+    socket.to(data.to).emit('receive receiver read notice', data.id)
+  })
+
+  socket.on('send new user', (data) => {
+    socket.broadcast.emit('receive new user', { username: data.username, _id: data._id, unreadCount: data.unreadCount })
+  })
+
 });
+
+
 
 /**
  * Listen on provided port, on all network interfaces.

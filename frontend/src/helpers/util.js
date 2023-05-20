@@ -3,7 +3,7 @@ import { Fragment } from 'react';
 import { Navigate } from 'react-router-dom';
 
 export const request = axios.create({
-    baseURL: 'http://192.168.1.1:3000/',
+    baseURL: 'http://192.168.1.6:3002/',
     timeout: 1000,
     headers: {
         Authorization: JSON.parse(localStorage.getItem('user'))?.token ? `Bearer ${JSON.parse(localStorage.getItem('user'))?.token}` : null
