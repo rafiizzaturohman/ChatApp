@@ -4,7 +4,7 @@ import { request } from "../helpers/util";
 import { useNavigate } from "react-router-dom";
 
 export default function LoginForm() {
-    const [userName, setUsername] = useState('')
+    const [userName, setUserName] = useState('')
     const navigate = useNavigate();
 
     const handleSubmit = async (event) => {
@@ -24,7 +24,7 @@ export default function LoginForm() {
                 navigate('/chat', { replace: true })
                 socket.emit('Send New User', { username: data.data.username, _id: data.data.id, unreadCount: 0 })
                 socket.emit('Join Room', data.data.username)
-                setUsername('')
+                setUserName('')
             } else {
                 alert('Fail to Logged In')
             }
@@ -32,6 +32,8 @@ export default function LoginForm() {
             console.log(error);
         }
     }
+
+    const handleChange = (e) => setUserName(e.target.value)
 
     return (
         <div className='mx-6'>
@@ -45,6 +47,8 @@ export default function LoginForm() {
                             id='username'
                             name='username'
                             placeholder='Username'
+                            value={userName}
+                            onChange={handleChange}
                             className='border border-black/25 px-3 py-1.5 rounded-md w-full' />
 
                         <button
