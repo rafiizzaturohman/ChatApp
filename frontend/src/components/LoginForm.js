@@ -36,9 +36,9 @@ export default function LoginForm() {
     const handleChange = (e) => setUserName(e.target.value)
 
     return (
-        <div className='mx-6'>
+        <div className='bg-slate-100'>
             <div className="flex items-center justify-center h-screen">
-                <form onSubmit={handleSubmit} className='space-y-6 border border-black/50 px-3 py-5 sm:w-full md:w-full lg:w-1/4 rounded-xl shadow-xl'>
+                <form onSubmit={handleSubmit} className='space-y-6 bg-white border border-black/50 px-6 py-5 sm:w-full md:w-full lg:w-1/4 rounded-xl shadow-xl'>
                     <h1 className='text-green-600 text-center font-bold sm:text-xl md:text-xl lg:text-2xl uppercase '>Welcome</h1>
 
                     <div className='flex flex-col items-center justify-center'>
