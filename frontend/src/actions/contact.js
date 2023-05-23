@@ -17,27 +17,27 @@ export const loadContact = (payload) => {
             const response = await request.get('chats', { params: { user: JSON.parse(localStorage.getItem('user'))?.id } })
 
             if (data.success) {
-                let s = []
+                let counter = []
                 let temp = data.data
                 let chatData = response.data.data
                 for (let i = 0; i < temp.length; i++) {
                     if (JSON.parse(localStorage.getItem('user'))?.username !== temp[i].username) {
                         if (payload && !temp[i]) {
-                            s.push({ username: payload.username, _id: payload._id, unreadCount: payload.unreadCount })
+                            counter.push({ username: payload.username, _id: payload._id, unreadCount: payload.unreadCount })
                         } else {
-                            s.push({ username: temp[i].username, _id: temp[i]._id, unreadCount: 0 })
+                            counter.push({ username: temp[i].username, _id: temp[i]._id, unreadCount: 0 })
                         }
                     }
                 }
 
                 for (let j = 0; j < chatData.length; j++) {
-                    for (let k = 0; k < s.length; k++) {
-                        if (chatData[j].readstatus === false && chatData[j].sender === s[k]._id) {
-                            s[k].unreadCount = s[k].unreadCount + 1
+                    for (let k = 0; k < counter.length; k++) {
+                        if (chatData[j].readstatus === false && chatData[j].sender === counter[k]._id) {
+                            counter[k].unreadCount = counter[k].unreadCount + 1
                         }
                     }
                 }
-                await dispatch(loadContactSuccess({ s }))
+                await dispatch(loadContactSuccess({ counter }))
             } else {
                 alert('gagal load contact')
             }

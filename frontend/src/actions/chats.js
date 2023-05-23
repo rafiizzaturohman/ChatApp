@@ -1,4 +1,4 @@
-import { request } from "../utils/api";
+import { request } from '../helpers/util';
 import socket from '../socket';
 import { loadContactSuccess } from "./contact";
 
@@ -242,7 +242,7 @@ export const addMessage = (payload, name) => {
             if (receiver === payload.sender) {
                 await dispatch(addMessageSuccess(payload))
                 dispatch(loadContactSuccess({
-                    cnt: [{ unreadCount: 0 }],
+                    counter: [{ unreadCount: 0 }],
                     payload
                 }))
                 let id = payload._id
@@ -251,7 +251,7 @@ export const addMessage = (payload, name) => {
             } else {
                 await dispatch(addMessageSuccessDiff(payload))
                 dispatch(loadContactSuccess({
-                    cnt: [{ unreadCount: count[0].unreadCount + 1 }],
+                    counter: [{ unreadCount: count[0].unreadCount + 1 }],
                     payload
                 }))
             }

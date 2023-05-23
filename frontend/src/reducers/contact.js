@@ -9,7 +9,7 @@ const contacts = (state = initialState, action) => {
                 return {
                     data: state.data.map(item => {
                         if (item._id === action.payload.payload?.sender) {
-                            item.unreadCount = action.payload.cnt[0].unreadCount
+                            item.unreadCount = action.payload.counter[0].unreadCount
                             return item
                         }
                         return item
@@ -17,7 +17,7 @@ const contacts = (state = initialState, action) => {
                 }
             } else {
                 return {
-                    data: action.payload.cnt
+                    data: action.payload.counter
                 }
             }
 

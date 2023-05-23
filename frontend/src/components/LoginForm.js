@@ -2,7 +2,6 @@ import socket from '../socket'
 import React, { useState } from "react";
 import { request } from "../helpers/util";
 import { useNavigate } from "react-router-dom";
-import ContactItem from './ContactItem';
 
 const LoginForm = () => {
     const [userName, setUserName] = useState('')
@@ -12,8 +11,6 @@ const LoginForm = () => {
         event.preventDefault()
         try {
             const { data } = await request.post('users/auth', { username: userName })
-
-            console.log(data)
 
             if (data.success) {
                 localStorage.setItem('user', JSON.stringify(data.data))
@@ -39,7 +36,7 @@ const LoginForm = () => {
     return (
         <div className='bg-slate-100'>
             <div className="flex items-center justify-center h-screen">
-                <form onSubmit={handleSubmit} className='space-y-6 bg-white border border-black/50 px-8 py-5 sm:w-full md:w-1/3 lg:w-1/3 rounded-xl shadow-xl'>
+                <form onSubmit={handleSubmit} className='space-y-6 bg-white border border-black/50 px-8 py-5 w-3/4 sm:w-1/3 md:w-[80%] lg:w-1/3 rounded-xl shadow-xl'>
                     <h1 className='text-green-600 text-center font-bold sm:text-xl md:text-xl lg:text-2xl uppercase '>Welcome</h1>
 
                     <div className='flex flex-col items-center justify-center'>
@@ -64,4 +61,4 @@ const LoginForm = () => {
     )
 }
 
-export default LoginForm
+export default LoginForm;
