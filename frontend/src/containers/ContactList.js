@@ -64,7 +64,7 @@ const ContactList = (props) => {
                 </div>
 
                 <div className="fixed w-full px-6 py-3 bottom-0 left-0 bg-gray-400">
-                    <button onClick={LogOut} className="transition border-2 border-red-500 hover:bg-red-500 hover:delay-150 hover:text-white px-3 py-1 rounded-full sm:px-4 md:px-5 lg:px-5 flex justify-evenly items-center space-x-2">
+                    <button onClick={LogOut} className="transition border-2 border-black hover:bg-black hover:delay-150 hover:text-white px-2 py-1 text-sm rounded-lg sm:px-3 md:px-4 lg:px-4 sm:text-md md:text-lg lg:text-lg flex justify-evenly items-center space-x-2">
                         <FontAwesomeIcon icon={faRightFromBracket} />
 
                         <p>Log Out</p>

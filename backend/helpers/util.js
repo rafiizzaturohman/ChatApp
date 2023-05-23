@@ -10,7 +10,7 @@ class Response {
 
 const tokenKey = 'RubiCAMP'
 
-const encodeToken = (data) => jwt.sign(data, tokenKey, { expiresIn: '1h' })
+const encodeToken = (data) => jwt.sign(data, tokenKey, { expiresIn: '24h' })
 
 const decodeToken = (token) => jwt.verify(token, tokenKey)
 
@@ -30,6 +30,7 @@ const isLoggedIn = async (req, res, next) => {
         if (user.token !== token) return res.status(401).json(new Response('User not found', false))
 
         req.user = user
+
         next()
     } catch (error) {
         console.log(error);
