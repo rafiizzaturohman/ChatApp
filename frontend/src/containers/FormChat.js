@@ -1,10 +1,15 @@
-import React from "react";
+import React, { Fragment } from "react";
+import ContactItem from "../components/ContactItem";
 
-export default function ChatForm() {
+const ChatForm = () => {
 
     return (
-        <div>
-            <h1>Ini Form Chat</h1>
-        </div>
+        <Fragment>
+            <div>
+                <h1>Ini Form Chat</h1>
+            </div>
+        </Fragment>
     )
 }
+
+export default ChatForm
