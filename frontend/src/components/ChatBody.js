@@ -33,15 +33,7 @@ const ChatBody = (props) => {
 
     if (props.sent === true && props.id === _id) {
         return (
-            <div id="chatbody" ref={setRef} className=" flex text-black border border-blue-400 px-3 py-2 rounded-xl space-x-3" onMouseEnter={() => setShow(true)} onMouseLeave={() => setShow(false)}>
-                {
-                    show &&
-                    <button type="button" onClick={handleOpenModal} className="transition border border-black/50 px-4 rounded-full text-black hover:bg-black hover:text-white hover:delay-100">
-                        <FontAwesomeIcon icon={faTrashCan} />
-                    </button>
-                }
-                <Modal isOpen={modalOpen} onClose={handleCloseModal} onDelete={handleDeleteMessage} />
-
+            <div id="chatbody" ref={setRef} className="flex justify-between text-black border border-blue-400 px-3 py-2 rounded-xl space-x-3 my-2" onMouseEnter={() => setShow(true)} onMouseLeave={() => setShow(false)}>
                 <span className="">
                     <ReactMarkdown children={props.chat} />
                     <div className="flex">
@@ -56,6 +48,13 @@ const ChatBody = (props) => {
                         {props.date}
                     </div>
                 </span>
+                {
+                    show &&
+                    <button type="button" onClick={handleOpenModal} className="transition border border-black/50 px-4 rounded-full text-black hover:bg-black hover:text-white hover:delay-100">
+                        <FontAwesomeIcon icon={faTrashCan} />
+                    </button>
+                }
+                <Modal isOpen={modalOpen} onClose={handleCloseModal} onDelete={handleDeleteMessage} />
             </div>
         )
     } else if (props.sent === false && sender === _id) {
