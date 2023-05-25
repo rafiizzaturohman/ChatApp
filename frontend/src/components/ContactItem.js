@@ -3,8 +3,8 @@ import React, { Fragment } from 'react';
 const ContactItem = (props) => {
     return (
         <Fragment>
-            <div className={props.selector === props.contact ? 'transition tracking-wider py-2 bg-blue-400 text-white hover:bg-transparent hover:text-black hover:delay-100' : 'transition tracking-wider py-2 text-black hover:bg-blue-400 hover:text-white hover:delay-100'}>
-                <div className={props.selector === props.contact ? 'px-3 text-white' : 'px-3'} onClick={props.set}>
+            <div className={props.selector === props.contact ? 'transition tracking-wider py-3 bg-gray-400/60 text-black hover:bg-gray-400/20 hover:delay-100' : 'transition tracking-wider py-3 text-black hover:bg-gray-400/50 hover:delay-100'}>
+                <div className={props.selector === props.contact ? 'text-black' : undefined} onClick={props.set}>
                     <div className='px-3'>
                         <div>
                             <span className='tracking-wider'>{props.contact}</span>

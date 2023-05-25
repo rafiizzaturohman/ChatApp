@@ -6,6 +6,7 @@ import ContactList from "./ContactList";
 import { addChat, addMessage, loadChat, receiverReadNotice, removeChat, removeMessage, resendChat, selectedReadNotice } from '../actions/chats';
 import { loadContact } from '../actions/contact'
 import { useDispatch, useSelector } from "react-redux";
+import ChatBody from "../components/ChatBody";
 
 const ChatForm = () => {
     const dispatch = useDispatch()
@@ -82,15 +83,50 @@ const ChatForm = () => {
                 <div className="">
                     <ContactList formChat={handleFormChat} />
                     {
-                        chat ?
+                        !chat ?
                             <div>
+                                <div className="bg-gray-400 w-screen">
+                                    <h3 className="px-4">Receiver Name</h3>
+                                </div>
+
                                 <div>
-                                    <h4>{name}</h4>
+                                    <h2 className="flex justify-center text-center">Select a chat to start messaging</h2>
                                 </div>
                             </div>
                             :
                             <div>
+                                <div className="bg-gray-400 w-screen">
+                                    <h4 className="px-4">{name}</h4>
+                                </div>
 
+                                <div>
+                                    <form onSubmit={submitChat}>
+                                        <div className="px-2">
+                                            {
+                                                selected.map(item => {
+                                                    return (
+                                                        <ChatBody
+                                                            key={item._id}
+                                                            id={item.sender}
+                                                            receiver={item.receiver}
+                                                            sent={item.sent}
+                                                            date={item.date}
+                                                            readstatus={item.readstatus}
+                                                            delete={() => dispatch(removeChat(item._id, name))}
+                                                            resend={() => dispatch(resendMessage(item._id, item.message, name))}
+                                                        />
+                                                    )
+                                                })
+                                            }
+                                        </div>
+
+                                        <div>
+                                            <div>
+                                                <input type="text" autofocus={true} class="border border-black/25 px-4 py-1 w-full rounded-xl" />
+                                            </div>
+                                        </div>
+                                    </form>
+                                </div>
                             </div>
                     }
                 </div>

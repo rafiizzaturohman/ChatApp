@@ -54,20 +54,20 @@ const ContactList = (props) => {
 
     return (
         <div>
-            <div className="bg-gray-200 h-screen">
-                <div className="bg-gray-400 px-6 py-3">
-                    <h2 className="font-semibold tracking-wider text-lg sm:text-lg md:text-xl lg:text-xl">Contacts</h2>
+            <div className="bg-[#F2F2F2]  h-screen">
+                <div className="bg-[#2196F3] px-6 py-3">
+                    <h2 className="font-semibold text-[#F2F2F2] tracking-wider text-lg sm:text-lg md:text-xl lg:text-xl">Contacts</h2>
                 </div>
 
                 <div className="hover:cursor-pointer">
                     {itemContact}
                 </div>
 
-                <div className="fixed w-full px-6 py-3 bottom-0 left-0 bg-gray-400">
+                <div className="fixed w-full px-6 py-3 bottom-0 left-0 bg-[#0088FF]">
                     <button onClick={LogOut} className="transition border-2 border-black hover:bg-black hover:delay-150 hover:text-white px-2 py-1 text-sm rounded-lg sm:px-3 md:px-4 lg:px-4 sm:text-md md:text-lg lg:text-lg flex justify-evenly items-center space-x-2">
                         <FontAwesomeIcon icon={faRightFromBracket} />
 
-                        <p>Log Out</p>
+                        <p >Log Out</p>
                     </button>
                     {
                         redirect && (
