@@ -53,9 +53,9 @@ const ContactList = (props) => {
     ));
 
     return (
-        <div>
-            <div className="bg-[#F2F2F2]  h-screen">
-                <div className="bg-[#2196F3] px-6 py-3">
+        <div className="">
+            <div>
+                <div className="bg-[#2196F3] pl-3 pr-20 py-6">
                     <h2 className="font-semibold text-[#F2F2F2] tracking-wider text-lg sm:text-lg md:text-xl lg:text-xl">Contacts</h2>
                 </div>
 
@@ -63,8 +63,8 @@ const ContactList = (props) => {
                     {itemContact}
                 </div>
 
-                <div className="fixed w-full px-6 py-3 bottom-0 left-0 bg-[#0088FF]">
-                    <button onClick={LogOut} className="transition border-2 border-black hover:bg-black hover:delay-150 hover:text-white px-2 py-1 text-sm rounded-lg sm:px-3 md:px-4 lg:px-4 sm:text-md md:text-lg lg:text-lg flex justify-evenly items-center space-x-2">
+                <div className="fixed w-full px-6 py-3 bottom-0 left-0">
+                    <button onClick={LogOut} className="transition border-2 border-black hover:bg-black hover:delay-150 hover:text-white px-2 py-1 text-sm rounded-lg sm:px-3 md:px-4 lg:px-4 sm:text-md md:text-md lg:text-lg flex justify-evenly items-center space-x-2">
                         <FontAwesomeIcon icon={faRightFromBracket} />
 
                         <p >Log Out</p>

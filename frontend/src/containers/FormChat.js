@@ -7,10 +7,14 @@ import { addChat, addMessage, loadChat, receiverReadNotice, removeChat, removeMe
 import { loadContact } from '../actions/contact'
 import { useDispatch, useSelector } from "react-redux";
 import ChatBody from "../components/ChatBody";
+import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
+import { faPaperPlane } from "@fortawesome/free-solid-svg-icons";
 
 const ChatForm = () => {
     const dispatch = useDispatch()
     const selected = useSelector((state) => state.chats.selectedChat)
+
+    console.log(selected)
 
     const [name, setName] = useState('')
     const [chat, setChat] = useState(false)
@@ -79,29 +83,31 @@ const ChatForm = () => {
     return (
         <Fragment>
             <IsLoggedIn />
-            <div className="">
-                <div className="">
+            <div className="h-screen">
+                <div className="flex">
                     <ContactList formChat={handleFormChat} />
                     {
                         !chat ?
-                            <div>
-                                <div className="bg-gray-400 w-screen">
-                                    <h3 className="px-4">Receiver Name</h3>
+                            <div className="h-[95vw]">
+                                <div className="bg-[#2196F3] w-[80] md:w-[79.5vw] max-w-[89.5vw] px-6 py-6">
+                                    <div>
+                                        <h3 className="font-semibold text-center text-[#F2F2F2] tracking-tighter text-lg sm:text-lg md:text-xl lg:text-xl">Receiver Name</h3>
+                                    </div>
                                 </div>
 
-                                <div>
-                                    <h2 className="flex justify-center text-center">Select a chat to start messaging</h2>
+                                <div className="flex items-center justify-center h-screen">
+                                    <h1 className="text-center text-xl">Select a chat to start messaging</h1>
                                 </div>
                             </div>
                             :
                             <div>
-                                <div className="bg-gray-400 w-screen">
-                                    <h4 className="px-4">{name}</h4>
+                                <div className="bg-[#2196F3] w-[80] md:w-[79.5vw] max-w-[89.5vw] px-6 py-6">
+                                    <h4 className="font-semibold text-center text-[#F2F2F2] tracking-wider text-lg sm:text-lg md:text-xl lg:text-xl">{name}</h4>
                                 </div>
 
                                 <div>
                                     <form onSubmit={submitChat}>
-                                        <div className="px-2">
+                                        <div className="px-2 h-[87vw] py-4">
                                             {
                                                 selected.map(item => {
                                                     return (
@@ -111,6 +117,7 @@ const ChatForm = () => {
                                                             receiver={item.receiver}
                                                             sent={item.sent}
                                                             date={item.date}
+                                                            chat={item.message}
                                                             readstatus={item.readstatus}
                                                             delete={() => dispatch(removeChat(item._id, name))}
                                                             resend={() => dispatch(resendMessage(item._id, item.message, name))}
@@ -120,9 +127,23 @@ const ChatForm = () => {
                                             }
                                         </div>
 
-                                        <div>
-                                            <div>
-                                                <input type="text" autofocus={true} class="border border-black/25 px-4 py-1 w-full rounded-xl" />
+                                        <div className="fixed bg-transparent px-6 py-3 bottom-0 right-0">
+                                            <div className="flex space-x-4">
+                                                <input
+                                                    type="text"
+                                                    autoFocus
+                                                    className="transition border border-black/25 px-4 py-1 w-full rounded-xl focus:border-black focus:delay-100"
+                                                    name="inputchat"
+                                                    id="inputchat"
+                                                    placeholder="Write a message here..."
+                                                    autoComplete="off"
+                                                    value={message}
+                                                    onChange={e => setMessage(e.target.value)}
+                                                />
+
+                                                <button type="submit" className="transition hover:delay-150 bg-blue-500 hover:bg-blue-400 px-3 text-xl rounded-full py-2 text-white">
+                                                    <FontAwesomeIcon icon={faPaperPlane} />
+                                                </button>
                                             </div>
                                         </div>
                                     </form>
