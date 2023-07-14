@@ -37,7 +37,7 @@ const LoginForm = () => {
         <div className='bg-slate-100'>
             <div className="flex items-center justify-center h-screen">
                 <form onSubmit={handleSubmit} className='space-y-6 bg-white border border-black/50 px-8 py-5 w-3/4 sm:w-1/3 md:w-[80%] lg:w-1/3 rounded-xl shadow-xl'>
-                    <h1 className='text-green-600 text-center font-bold sm:text-xl md:text-xl lg:text-2xl uppercase '>Welcome</h1>
+                    <h1 className='text-blue-600 text-center font-bold sm:text-xl md:text-xl lg:text-2xl uppercase '>Welcome</h1>
 
                     <div className='flex flex-col items-center justify-center'>
                         <input
