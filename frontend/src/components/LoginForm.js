@@ -31,7 +31,7 @@ const LoginForm = () => {
         }
     }
 
-    const handleChange = (e) => setUserName(e.target.value)
+    const handleInputChange = (e) => setUserName(e.target.value)
 
     return (
         <div className='bg-slate-100'>
@@ -46,7 +46,7 @@ const LoginForm = () => {
                             name='username'
                             placeholder='Username'
                             value={userName}
-                            onChange={handleChange}
+                            onChange={handleInputChange}
                             className='border border-black/25 px-3 py-1.5 rounded-md w-full' />
 
                         <button

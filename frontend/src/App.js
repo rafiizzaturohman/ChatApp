@@ -1,7 +1,7 @@
 import './App.css';
 import React from "react"
 import LoginForm from './components/LoginForm';
-import ChatForm from './containers/FormChat';
+import ChatForm from './containers/ChatForm';
 import { legacy_createStore as createStore, applyMiddleware } from 'redux'
 import { Provider } from 'react-redux'
 import rootReducer from './reducers'

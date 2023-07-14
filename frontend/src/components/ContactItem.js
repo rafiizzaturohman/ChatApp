@@ -5,7 +5,7 @@ const ContactItem = (props) => {
         <Fragment>
             <div className={props.selector === props.contact ? 'transition tracking-wider py-3 bg-gray-400/60 text-black hover:bg-gray-400/20 hover:delay-100' : 'transition tracking-wider py-3 text-black hover:bg-gray-400/50 hover:delay-100'}>
                 <div className={props.selector === props.contact ? 'text-black' : undefined} onClick={props.set}>
-                    <div className='px-3'>
+                    <div className='flex px-3 justify-between'>
                         <div>
                             <span className='tracking-wider'>{props.contact}</span>
                         </div>
