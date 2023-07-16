@@ -53,32 +53,35 @@ const ContactList = (props) => {
     ));
 
     return (
-        <div className="bg-gray-50">
-            <div className="w-full">
-                <div className="flex justify-center items-center bg-[#2196F3] px-10 py-6 rounded-t-md">
-                    <h2 className="font-semibold text-[#F2F2F2] tracking-wider text-lg sm:text-lg md:text-xl lg:text-xl">Contacts</h2>
-                </div>
+        <div className="w-[30%] max-w-full mx-1">
+            <div className="bg-gray-100 rounded-t-md border  h-full max-h-[90.2vh]">
+                <div className="">
+                    <div className="flex justify-center items-center bg-[#2196F3] px-10 py-6 rounded-t-md">
+                        <h2 className="font-semibold text-[#F2F2F2] tracking-wider text-lg sm:text-lg md:text-xl lg:text-xl">Contacts</h2>
+                    </div>
 
-                <div className="w-full max-w-full">
-                    <div className="bg-gray-50 rounded-md">
-                        <div className="hover:cursor-pointer overflow-y-auto">
-                            {itemContact}
-                        </div>
+                    <div className="w-full max-w-full">
+                        <div className="rounded-md">
+                            <div className="hover:cursor-pointer overflow-y-auto">
+                                {itemContact}
+                            </div>
 
-                        <div className="absolute bottom-3 px-6 py-3">
-                            <button onClick={LogOut} className="transition text-blue-400 border-2 border-blue-400 hover:bg-blue-400 hover:delay-150 hover:text-white px-2 py-1 text-sm rounded-lg sm:px-3 md:px-4 lg:px-4 sm:text-md md:text-md lg:text-lg flex justify-evenly items-center space-x-2">
-                                <FontAwesomeIcon icon={faRightFromBracket} />
-
-                                <p>Log Out</p>
-                            </button>
-                            {
-                                redirect && (
-                                    <Navigate to='/' replace={true} />
-                                )
-                            }
                         </div>
                     </div>
                 </div>
+            </div>
+
+            <div className="px-6 py-2 sm:py-4 bg-white w-full border-2 rounded-b-md">
+                <button onClick={LogOut} className="transition text-blue-400 border-2 border-blue-400 hover:bg-blue-400 hover:delay-150 hover:text-white px-2 py-1 text-sm rounded-lg sm:px-3 sm:text-[0.7rem] sm:font-bold md:px-4 lg:px-4 sm:text-md md:text-md lg:text-lg flex justify-evenly items-center space-x-2">
+                    <FontAwesomeIcon icon={faRightFromBracket} />
+
+                    <p>Log Out</p>
+                </button>
+                {
+                    redirect && (
+                        <Navigate to='/' replace={true} />
+                    )
+                }
             </div>
         </div>
     )
