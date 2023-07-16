@@ -62,27 +62,6 @@ DataBase Management System(DBMS):
 ### User
 * Username
 
-## Features
-* Log In and Log Out
-
-<img title="Log In and Log Out" src="./assets/gif/LoginNLogout.gif" />
-
-* Create a new username automatically provided that the username is not the same as the existing username
-
-<img title="Create Username" src="./assets/gif/Create Username.gif" />
-
-* Selectable Chat
-
-<img title="Selectable Chat" src="./assets/gif/SelectChat.gif" />
-
-* Notification Number for Unread Messages
-
-<img title="Notif" src="./assets/gif/NotifUnread.gif" />
-
-* Delete Chat
-
-<img title="Delete Chat" src="./assets/gif/DeleteChat.gif" />
-
 ## Quick Start
 
 Open terminal to run the server
@@ -116,3 +95,23 @@ npm start
 ```
 
 This application should run on port 3000, you can access it through browser, just go to http://localhost:3000/ for Client App and http://localhost:3005/ for RESTful API's.
+## Features
+* Log In and Log Out
+
+<img title="Log In and Log Out" src="./assets/gif/LoginNLogout.gif" />
+
+* Create a new username automatically provided that the username is not the same as the existing username
+
+<img title="Create Username" src="./assets/gif/Create Username.gif" />
+
+* Selectable Chat
+
+<img title="Selectable Chat" src="./assets/gif/SelectChat.gif" />
+
+* Notification Number for Unread Messages
+
+<img title="Notif" src="./assets/gif/NotifUnread.gif" />
+
+* Delete Chat
+
+<img title="Delete Chat" src="./assets/gif/DeleteChat.gif" />
