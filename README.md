@@ -25,7 +25,7 @@ Make sure you have installed all of the following prerequisites on your developm
 
 * Node.JS - [Download & Install Node.JS](https://nodejs.org/en/download/current), and the npm package manager.
 
-* PostgresQL - [Download & Install PostgresQL](https://www.postgresql.org/download/), and make sure it's running on the default port  (27017).
+* MongoDB - [Download & Install MongoDB](https://www.mongodb.com/docs/manual/installation/), and make sure it's running.
 
 ## Technologies
 
