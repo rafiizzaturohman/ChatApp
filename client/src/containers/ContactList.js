@@ -62,7 +62,7 @@ const ContactList = (props) => {
 
                     <div className="w-full max-w-full">
                         <div className="rounded-md">
-                            <div className="hover:cursor-pointer overflow-y-auto">
+                            <div className="hover:cursor-pointer overflow-y-scroll">
                                 {itemContact}
                             </div>
 
